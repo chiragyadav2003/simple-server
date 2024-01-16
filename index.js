@@ -173,6 +173,32 @@ app.get("/todos", (req, res) => {
     })
 })
 
+//**useParam syntax */
+app.get("/todo/:id", (req, res) => {
+    const todoid = req.params.id
+    if (!todos[todoid]) {
+        res.status(411).json({
+            msg: "invalid id , please enter id between 1-30"
+        })
+    }
+    return res.json({
+        todo: todos[todoid]
+    })
+})
+
+//**query syntax */
+// app.get("/todo", (req, res) => {
+//     const todoid = req.query.id
+//     if (!todos[todoid]) {
+//         res.status(411).json({
+//             msg: "invalid id , please enter id between 1-30"
+//         })
+//     }
+//     return res.json({
+//         todo: todos[todoid]
+//     })
+// })
+
 app.get("/sum", (req, res) => {
     const a = parseInt(req.query.a);
     const b = parseInt(req.query.b);
