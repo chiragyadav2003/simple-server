@@ -160,6 +160,9 @@ const todos = [
     }
 ];
 
+app.get("/", (req,res)=>{
+    res.json({message:"Hi User, todos server is running"});
+});
 
 app.get("/todos", (req, res) => {
     const randomTodo = []
